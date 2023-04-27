@@ -1,0 +1,41 @@
+{% extends "index\base.html" %}
+{% block content %}
+
+<h1><center>Music List</center></h1>
+<div class="container">
+
+<table class="table table-striped">
+  <tr>
+     <th>ID </th>
+     <th>Music Name</th>
+     <th>Music Brand</th>
+     <th>Music Price</th>
+     <th>Buy Date</th>
+      <th>Producer</th>
+      <th>Qty</th>
+      <th> Update </th>
+      <th>Delete</th>
+
+  </tr>
+  <tr>
+  {% for music in musics%}
+    <td> {{ music.id }} </td>
+    <td> {{ music.music_name }}</td>
+    <td> {{ music.music_brand }}</td>
+    <td> {{ music.music_price }}</td>
+    <td> {{ music.music_buy }}</td>
+    <td> {{ music.music_producer }}</td>
+    <td> {{ music.music_quantity }}</td>
+      <td> <a class="btn btn-info" href ="{%url 'update_music' music.id %}" >Update  </a> <td>
+      <td> <a class="btn btn-danger" href ="{%url 'delete_music' music.id %}" >Delete  </a> <td>
+    </tr>
+  {%endfor%}
+</table>
+
+<a class="btn btn-info pull-right" href = "{%url 'add_music' %}"> New Musical Instrumental </a>
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<!--CDN, content delivery network, 네트워크에서 직접 컨텐츠를 불러와 사용.-->
+</div>
+{% endblock %}

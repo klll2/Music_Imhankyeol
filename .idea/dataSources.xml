@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="db" uuid="b4930e4a-79b5-4329-ba20-b2938370069e">
+      <driver-ref>sqlite.xerial</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+      <jdbc-url>jdbc:sqlite:C:\Users\imkye\PycharmProjects\BigProject\db.sqlite3</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+      <libraries>
+        <library>
+          <url>file://$USER_HOME$/Downloads/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31/mysql-connector-j-8.0.31.jar</url>
+        </library>
+      </libraries>
+    </data-source>
+  </component>
+</project>
