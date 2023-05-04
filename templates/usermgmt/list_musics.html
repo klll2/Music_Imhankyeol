@@ -4,6 +4,13 @@
 <h1><center>Music List</center></h1>
 <div class="container">
 
+
+<form action="/music/search_basic" method="get">
+        <input type="text" name="q">
+        <input type="submit" value="Search Music Name">
+</form>
+
+
 <table class="table table-striped">
   <tr>
      <th>ID </th>
@@ -13,6 +20,7 @@
      <th>Buy Date</th>
       <th>Producer</th>
       <th>Qty</th>
+      <th>Genre</th>
       <th> Update </th>
       <th>Delete</th>
 
@@ -26,6 +34,7 @@
     <td> {{ music.music_buy }}</td>
     <td> {{ music.music_producer }}</td>
     <td> {{ music.music_quantity }}</td>
+      <td> {{ music.music_genre }}</td>
       <td> <a class="btn btn-info" href ="{%url 'update_music' music.id %}" >Update  </a> <td>
       <td> <a class="btn btn-danger" href ="{%url 'delete_music' music.id %}" >Delete  </a> <td>
     </tr>

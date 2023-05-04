@@ -9,5 +9,7 @@ urlpatterns = [
     path('delete/<int:id>/', views.delete_music, name = 'delete_music'),
     path('home', views.home, name='home'),
     path('author', views.author, name='author'),
+    path('search_basic/', views.search_basic, name = 'search_music'),
+    path('search/', views.search, name = 'search_music2'),
 
 ]

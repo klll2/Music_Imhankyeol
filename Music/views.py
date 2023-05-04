@@ -49,3 +49,20 @@ def home(request):
 
 def author(request):
     return render(request, 'index/author.html')
+
+def search_basic(request):
+    if 'q' in request.GET:
+        q = request.GET['q']
+        message = 'You searched for: %r' % request.GET['q']
+        musics = Music.objects.filter(music_name__icontains=q)
+
+    else:
+        message = 'You submitted an empty form.'
+    return render(request, 'usermgmt/list_musics.html', {'message': message, 'musics': musics})
+
+from .filter import MusicFilter
+
+def search(request):
+    user_list = Music.objects.all()
+    musics = MusicFilter(request.GET, queryset=user_list)
+    return render(request, 'usermgmt/list_search.html', {'filter': musics})

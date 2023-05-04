@@ -1,0 +1,55 @@
+{% extends "index\base.html" %}
+
+{% block content %}
+
+<html>
+<body>
+<h1><center>Music List with Django Filter</center></h1>
+<div class="container">
+
+<form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Search</button>
+  </form>
+  <ul>
+  {% for user in filter.qs %}
+    <li>{{ user.music_name }} - {{ user.music_brand }}</li>
+  {% endfor %}
+  </ul>
+
+<table class="table table-striped">
+  <tr>
+     <th>ID </th>
+     <th>Music Name</th>
+     <th>Brand Name</th>
+     <th>Price</th>
+     <th>Buy</th>
+     <th>Producer</th>
+     <th>Qty</th>
+     <th>Genre</th>
+     <th> Update </th>
+  </tr>
+  <tr>
+  {% for music in filter.qs%}
+    <td> {{ music.id }} </td>
+    <td> {{ music.music_name }}</td>
+    <td> {{ music.music_brand }}</td>
+    <td> {{ music.music_price }}</td>
+    <td> {{ music.music_buy }}</td>
+    <td> {{ music.music_producer }}</td>
+    <td> {{ music.music_quantity }}</td>
+    <td> {{ music.music_genre }}</td>
+    <td> <a class="btn btn-success" href ="{%url 'update_music' music.id %}" >Update  </a> <td>
+    </tr>
+  {%endfor%}
+</table>
+
+<a class="btn btn-info pull-right" href = "{%url 'add_music' %}"> New Music </a>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</div>
+</body>
+</html>
+
+{% endblock %}
